@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style type="text/css">
+		@media screen and (max-width: 810px) {
+			.container {
+				width: 330px!important;
+			}
+			.content {
+				width: 100%!important;
+			}
+			.content:nth-child(2) {
+				display: none;
+				width: 320px!important;
+				position: absolute;
+				margin: none!important;
+			}
+			#show-history {
+				display: block!important;
+			}
+		}
+
+		/* width */
+		::-webkit-scrollbar {
+		  width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: none;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #888;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background: #555;
+		}
+
+		* {
+			font-family: sans-serif;
+		}
+		body {
+			margin: 0 auto;
+		    background: linear-gradient(to bottom right, #21285a 0%, #5f6489 50%, #330867 100%);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		button {
+			cursor: pointer;
+		}
+		.screen-width {
+			width: 100%;
+			height: 100vh;
+		}
+		.flex-center{
+			flex-direction: column;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container {
+			display: flex;
+			width: 800px;
+			height: 500px;
+		}
+		.content {
+			width: 50%;
+			height: 490px;
+			margin: 5px;
+			overflow-wrap: break-word;
+			box-shadow: -31px 38px 65px -30px #00000087;
+		}
+		.col-span-2 {
+			width: 50%!important;
+		}
+		#history {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			padding: 0 5px;
+			width: calc(100%-10px);
+			height: calc(100% - 73px);
+			background: #1a1e34;;
+			overflow-y: scroll;
+		}
+		#history-inner  {
+			width: 100%;
+			height: auto;
+		}
+		#history-inner p {
+			text-orientation: upright; 
+			border-bottom: 1px solid #3e4570f7;
+			font-size: 18px;
+			font-weight: bold;
+			margin: 5px;
+			color: white;
+		}
+		#prev-output {
+			width: calc(100% - 20px);
+			padding: 5px 10px;
+			height: 40px;
+			font-size: 21px;
+			font-weight: bold;
+			color: white;
+			text-align: right;
+			background: #1a1e34;
+		}
+		#current-output {
+			width: calc(100% - 20px);
+			padding: 0 10px;
+			height: 75px;
+			font-size: 28px;
+			font-weight: bold;
+			color: white;
+			text-align: right;
+			background: #1a1e34;;
+		}
+		.num-button {
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			width: 100%;
+			height: calc(100% - 120px);
+			padding-bottom: 5px;
+		}
+		.num-button button {
+			border: none;
+			outline: none;
+			width: 25%;
+			height: calc(20% - 1px);
+			color: white;
+			background: #2b2e3fc5;
+			font-weight: bold;
+		}
+		button:hover {
+			opacity: 0.85;
+		}
+		.btn {
+			font-weight: bold;
+			color: white;
+			border: none;
+			outline: none;
+		}
+		.clear-history-btn {
+			font-size: 18px;
+			width: 100%;
+			height: 73px;
+			background: #d11a2a;
+		}
+		.clear-btn {
+			background: #d11a2a!important;
+		}
+		.opr-btn {
+			background: #ffa114!important; 
+		}
+		.equal-btn {
+			background: #837eba!important;
+		}
+		#show-history {
+			display: none;
+			width: 320px;
+			height: 30px;
+			background: #00a92c;
+		}
+	</style>
+</head>
+<body class="screen-width flex-center">
+	<button data-show-history id="show-history" class="btn">Show History</button>
+	<div class="container">
+		<div class="content">
+			<div data-previous-output id="prev-output"></div>
+			<div data-current-output id="current-output"></div>
+			<div class="num-button">
+				<button data-clear class="clear-btn col-span-2">C</button>
+				<button data-delete class="opr-btn">&#9003;</button>
+				<button data-operator class="opr-btn">/</button>
+				<button data-num>7</button>
+				<button data-num>8</button>
+				<button data-num>9</button>
+				<button data-operator class="opr-btn">x</button>
+				<button data-num>4</button>
+				<button data-num>5</button>
+				<button data-num>6</button>
+				<button data-operator class="opr-btn">-</button>
+				<button data-num>1</button>
+				<button data-num>2</button>
+				<button data-num>3</button>
+				<button data-operator class="opr-btn">+</button>
+				<button data-num class="col-span-2">0</button>
+				<button data-num>.</button>
+				<button data-equal class="equal-btn">=</button>
+			</div>
+		</div>
+		<div id="container-history" class="content">
+			<div id="history">
+				<div data-history id="history2"></div>
+			</div>
+			<button data-clear-history class="clear-history-btn btn">Clear History</button>
+		</div>
+	</div>
+
+	<script src="Calculator.js"></script>
+</body>
+</html>
