@@ -82,7 +82,7 @@
 		}
 		#history {
 			display: flex;
-			flex-direction: column;
+			flex-direction: column-reverse;
 			align-items: flex-end;
 			padding: 0 5px;
 			width: calc(100%-10px);
@@ -94,12 +94,12 @@
 			width: 100%;
 			height: auto;
 		}
-		#history2 p {
+		#history-inner p {
 			border-bottom: 1px solid #3e4570f7;
 			font-size: 18px;
 			font-weight: bold;
 			margin: 5px;
-			color: white;
+			color: white!important;
 		}
 		#prev-output {
 			width: calc(100% - 20px);
@@ -199,7 +199,7 @@
 		</div>
 		<div id="container-history" class="content">
 			<div id="history">
-				<div data-history id="history2"></div>
+				<div data-history id="history-inner"></div>
 			</div>
 			<button data-clear-history class="clear-history-btn btn">Clear History</button>
 		</div>
